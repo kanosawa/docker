@@ -5,5 +5,5 @@ sh build.sh
 sh run.sh
 
 ## Argument in build.sh and run.sh
-CUDA_VER : Version of CUDA
+CUDA_VER : Version of CUDA  
 CUDNN_VER : Version of CUDNN
