@@ -1,5 +1,5 @@
-CUDA_VER="9"
-CUDNN_VER="7"
+CUDA_VER="8"
+CUDNN_VER="5"
 
 nvidia-docker run --rm \
                   -e DISPLAY=$DISPLAY \
