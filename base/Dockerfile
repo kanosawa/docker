@@ -20,6 +20,7 @@ RUN apt-get update && \
     make \
     git \
     vim \
+    tk-dev \
     libssl-dev \
     libbz2-dev \
     libsqlite3-dev \
@@ -45,4 +46,4 @@ RUN pyenv global 3.6.6
 # pip
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
-    numpy
+    pylint
