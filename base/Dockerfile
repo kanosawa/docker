@@ -19,17 +19,30 @@ RUN apt-get update && \
     unzip \
     make \
     git \
+    vim \
     libssl-dev \
     libbz2-dev \
     libsqlite3-dev \
     libreadline-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    libasound2-dev \
+    libxss1 \
+    libxtst6 \
+    gdebi
+
+# VSCode
+RUN wget -O vscode-amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868
+RUN yes | gdebi vscode-amd64.deb
+RUN rm vscode-amd64.deb
 
 # pyenv
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 ENV PYENV_ROOT $HOME/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
-RUN pyenv install 2.7.15
 RUN pyenv install 3.6.6
 RUN pyenv global 3.6.6
-    
+
+# pip
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir \
+    numpy
