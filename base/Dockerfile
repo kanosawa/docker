@@ -12,6 +12,13 @@ ENV HOME /root
 # set noninteractive mode
 ENV DEBIAN_FRONTEND noninteractive
 
+# proxy
+#ENV http_proxy http://xxx.xx.xxx.xxx:8080
+#ENV https_proxy http://xxx.xx.xxx.xxx:8080
+
+# use domestic server
+RUN sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+
 # apt-get
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
